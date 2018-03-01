@@ -1,0 +1,10 @@
+.header {
+    background-image: url("./assets/navigation-bg.jpg");
+    height: 200px;
+    padding: 20px;
+    color: white;
+}
+
+.cr-logo {
+    height: 200px;
+}

@@ -1,18 +1,32 @@
+/* eslint-disable react/jsx-filename-extension */
+
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import * as R from 'ramda';
+import getQuotes from './api/quote';
+import Header from './components/Header.jsx';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      quotes: [],
+    };
+  }
+
+  componentDidMount() {
+    getQuotes().then((data) => {
+      console.log(data);
+      this.setState({
+        quotes: R.pathOr([], ['messages', 'non_personalized'], data),
+      });
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Header text="Columbia Road Tech Corner" />
       </div>
     );
   }
