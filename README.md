@@ -32,7 +32,7 @@ Next, navigate to that folder using `cd ~/Documents/React/tech-corner/`
 
 `npm install`
 
-This will install React and some other packages _locally_ to this folder (So you're cluttering your whole environment with a certain React installation).
+This will install React and some other packages _locally_ to this folder (So you're not cluttering your whole environment with a certain React installation).
 
 `npm start`
 
