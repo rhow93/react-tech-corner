@@ -42,7 +42,7 @@ The focus of the day is to present quotes from a certain "influential" figure (I
 
 1. A `Quote` component has been created in `src/components/Quote.jsx`, but it isn't used anywhere. Your job is to import this component in `App.js` and pass a single quote from the `state.quotes` list as a prop (HINT: `this.state.selectedQuote` might help you choose a quote to send).
 
-2. This project uses the Semantic UI library, which has some fancy looking buttons. Your next task is to import the `Button` component from `semantic-ui-react` and pass the `setQuoteIndex(index)` function as a prop for the `onClick` listener.
+2. This project uses the Semantic UI library, which has some fancy looking buttons. Your next task is to import the `Button` component from `semantic-ui-react` and pass the `changeSelectedQuote()` function as a prop for the `onClick` listener.
 
 3. You can open a new tab using `window.open('www.example.org', '_blank')`. I want you to add another (appropriately styled, you might want to add some css) button that sends an _intent_ to tweet the displayed quote. Documentation for the link to open can be found [here](https://dev.twitter.com/web/tweet-button)
 
