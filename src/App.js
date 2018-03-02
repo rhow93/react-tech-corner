@@ -11,7 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       quotes: [],
-      selectedQuote: 0,
+      selectedQuoteIndex: 0,
     };
   }
 
@@ -20,6 +20,13 @@ class App extends Component {
       this.setState({
         quotes: R.pathOr([], ['messages', 'non_personalized'], data),
       });
+    });
+  }
+
+  changeSelectedQuote() {
+    const newQuoteIndex = Math.floor(Math.random() * Math.floor(this.state.quotes.length));
+    this.setState({
+      selectedQuoteIndex: newQuoteIndex,
     });
   }
 

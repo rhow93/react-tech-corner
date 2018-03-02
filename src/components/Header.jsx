@@ -3,7 +3,7 @@ import '../styles/header.css';
 import logo from '../styles/assets/columbia-road-logo.png';
 
 const Header = () => (
-  <div className="header">
+  <div className="cr-header">
     <img src={logo} alt="CR-Logo" className="cr-logo"/>
   </div>
 );
