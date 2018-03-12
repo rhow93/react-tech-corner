@@ -1,6 +1,7 @@
 {
   "extends": "airbnb",
   "globals": {
-    "fetch": true
+    "fetch": true,
+    "window": true
   }
 }

@@ -2,8 +2,10 @@
 
 import React, { Component } from 'react';
 import * as R from 'ramda';
+import { Button, Icon } from 'semantic-ui-react';
 import getQuotes from './api/quote';
 import Header from './components/Header';
+import Quote from './components/Quote';
 import './App.css';
 
 class App extends Component {
@@ -13,6 +15,8 @@ class App extends Component {
       quotes: [],
       selectedQuoteIndex: 0,
     };
+
+    this.changeSelectedQuote = this.changeSelectedQuote.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +38,19 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Quote text={this.state.quotes[this.state.selectedQuoteIndex]} />
+        <Button onClick={this.changeSelectedQuote}>MORE WISDOM</Button>
+        <Button
+          color="twitter"
+          onClick={() =>
+            window.open(
+              `https://twitter.com/intent/tweet?text=${this.state.quotes[this.state.selectedQuoteIndex]}`,
+              '_blank',
+            )}
+        >
+          <Icon name="twitter" />
+          Tweet yourself a wisdom
+        </Button>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Message } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import '../styles/quote.css';
 
 const Quote = props => (
   <div className="quote">
@@ -12,7 +13,10 @@ const Quote = props => (
   </div>
 );
 Quote.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
+};
+Quote.defaultProps = {
+  text: '',
 };
 
 export default Quote;
