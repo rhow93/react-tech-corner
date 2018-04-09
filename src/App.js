@@ -17,6 +17,7 @@ class App extends Component {
     };
 
     this.changeSelectedQuote = this.changeSelectedQuote.bind(this);
+    this.buildAndSendTweet = this.buildAndSendTweet.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +35,11 @@ class App extends Component {
     });
   }
 
+  buildAndSendTweet() {
+    const tweet = `"${this.state.quotes[this.state.selectedQuoteIndex]}" - @realDonaldTrump`;
+    window.open(`https://twitter.com/intent/tweet?text=${tweet}`, '_blank');
+  }
+
   render() {
     return (
       <div className="App">
@@ -42,11 +48,7 @@ class App extends Component {
         <Button onClick={this.changeSelectedQuote}>MORE WISDOM</Button>
         <Button
           color="twitter"
-          onClick={() =>
-            window.open(
-              `https://twitter.com/intent/tweet?text=${this.state.quotes[this.state.selectedQuoteIndex]}`,
-              '_blank',
-            )}
+          onClick={this.buildAndSendTweet}
         >
           <Icon name="twitter" />
           Tweet yourself a wisdom
