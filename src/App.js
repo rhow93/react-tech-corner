@@ -2,10 +2,13 @@
 
 import React, { Component } from 'react';
 import * as R from 'ramda';
-import { Button, Icon } from 'semantic-ui-react';
+import { Button, Icon, Grid } from 'semantic-ui-react';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import getQuotes from './api/quote';
 import Header from './components/Header';
 import Quote from './components/Quote';
+import FaceContainer from './components/FaceContainer';
 import './App.css';
 
 class App extends Component {
@@ -44,8 +47,16 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Quote text={this.state.quotes[this.state.selectedQuoteIndex]} />
-        <Button onClick={this.changeSelectedQuote}>MORE WISDOM</Button>
+        <Grid>
+          <Grid.Row columns={2}>
+            <Grid.Column>
+              <FaceContainer onJawDrag={this.changeSelectedQuote} />
+            </Grid.Column>
+            <Grid.Column verticalAlign="middle" >
+              <Quote text={this.state.quotes[this.state.selectedQuoteIndex]} />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
         <Button
           color="twitter"
           onClick={this.buildAndSendTweet}
@@ -58,4 +69,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default DragDropContext(HTML5Backend)(App);
